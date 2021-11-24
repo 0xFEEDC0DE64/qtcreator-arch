@@ -7,7 +7,7 @@
 # Contributor: heinz from #qt-creator
 # Contributor: Tobias Hunger <tobias dot hunger at gmail dot com>
 
-pkgname=qtcreator-git
+pkgname=qtcreator-esp-idf
 pkgver=8.0.0.beta1.r49.g016321f0c8
 pkgrel=1
 pkgdesc='Lightweight, cross-platform integrated development environment'
@@ -33,7 +33,7 @@ optdepends=('bzr: bazaar support'
             'x11-ssh-askpass: ssh support')
 provides=("qtcreator=$pkgver")
 conflicts=(qtcreator)
-source=('git+https://code.qt.io/qt-creator/qt-creator.git'
+source=('git+https://github.com/0xFEEDC0DE64/qt-creator.git'
         'org.qt-project.qtcreator.desktop')
 sha256sums=('SKIP'
             '90addb552923db0897f7096d166c2d1bf1c3390ae9c79687fc4ce7c4e57ee810')
@@ -55,7 +55,7 @@ prepare() {
 
 build() {
     cd build
-    
+
     cmake -B . -S "${srcdir}/qt-creator" \
         -DCMAKE_INSTALL_PREFIX=/usr \
         -DCMAKE_INSTALL_LIBEXECDIR=lib \
